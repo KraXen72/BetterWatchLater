@@ -1,0 +1,77 @@
+/* ----=== Better Watch later start ===--- */
+ytd-playlist-thumbnail {
+   display: none !important;
+}
+
+ytd-playlist-sidebar-primary-info-renderer {
+   display: inline-flex !important;
+}
+
+ytd-playlist-sidebar-secondary-info-renderer {
+   display: inline-flex !important;
+   float: right;
+}
+
+ytd-playlist-sidebar-renderer.ytd-browse { 
+   height: 60px !important;
+   overflow: hidden !important;
+   position: unset !important;
+   width: 100% !important;
+}
+
+#owner-container {
+   display: none !important;
+}
+
+#stats {
+   margin-left: 10px;
+}
+
+#privacy-stats {
+   margin-left: 10px;
+   margin-top: 0 !important;
+}
+
+ytd-playlist-sidebar-primary-info-renderer ytd-menu-renderer {
+   margin-left: 10px;
+   margin-top: 0 !important;
+}
+
+ytd-two-column-browse-results-renderer {
+   padding-left: 0 !important;
+}
+
+ytd-video-meta-block {
+   padding-left: 10px !important;
+   padding-top: 2px !important;
+}
+
+#sort-filter-menu {
+   padding: 10px 10px 0 10px !important; 
+}
+
+#content {
+   padding-top: 5px !important;
+   padding-bottom: 5px !important;
+}
+
+#meta { 
+   display: inline-flex !important;
+}
+
+ytd-playlist-video-renderer #menu {
+   display: inline-flex !important;
+}
+
+.better-watch-later-button {
+   height: 25px;
+   width: 25px;
+   margin: 10px;
+   cursor: pointer;
+}
+
+.better-watch-later-button:hover svg {
+   fill: white;
+}
+
+/* ----=== Better Watch later end ===--- */
