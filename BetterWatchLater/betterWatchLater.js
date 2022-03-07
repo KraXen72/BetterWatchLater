@@ -7,12 +7,11 @@ function addRightButtons(svg, dropdownIndex, cssClass) {
       if(document.querySelectorAll('ytd-playlist-video-renderer #menu')[i].querySelectorAll('.' + cssClass).length > 0) {
          continue;
       }
-       
+
      let button = document.createElement('div');
      button.classList.add('better-watch-later-button')
-     
      button.classList.add(cssClass)
-     
+
      let dropdownTrigger = document.querySelectorAll('ytd-playlist-video-renderer .dropdown-trigger')[i]
      button.addEventListener('click', function (event) {
          eventFire(dropdownTrigger, 'click');
@@ -21,9 +20,10 @@ function addRightButtons(svg, dropdownIndex, cssClass) {
             createButtonsWithIntervalAndDisappearence()
          }, 0)
      });
-        
+
      button.innerHTML = svg
-     document.querySelectorAll('ytd-playlist-video-renderer #menu')[i].appendChild(button)
+     const menu = document.querySelectorAll('ytd-playlist-video-renderer #menu')[i]
+     menu.appendChild(button)
    }
 }
 
@@ -51,28 +51,41 @@ function setIntervalX(callback, delay, repetitions) {
 }
 
 function createButtons(){
-   addRightButtons(moveToBottomSVG, 4, 'better-watch-later-button-move-to-top')
-   addRightButtons(moveToTopSVG, 3, 'better-watch-later-button-move-to-bottom')
-   addRightButtons(trashCanSVG, 2, 'better-watch-later-button-delete')
+   if(document.querySelectorAll('ytd-playlist-video-renderer #menu').length === 0) {
+      setTimeout(() => {
+         createButtons()
+      }, 500)
+   }
+   else {
+      addRightButtons(moveToBottomSVG, 4, 'better-watch-later-button-move-to-top')
+      addRightButtons(moveToTopSVG, 3, 'better-watch-later-button-move-to-bottom')
+      addRightButtons(trashCanSVG, 2, 'better-watch-later-button-delete')
+   }
 }
 
 function setUpObserver() {
    // Select the node that will be observed for mutations
    const targetNode = document.querySelector('ytd-playlist-video-list-renderer #contents');
+   if(targetNode) {
+      // Options for the observer (which mutations to observe)
+      const config = { attributes: true, childList: true, subtree: false };
 
-   // Options for the observer (which mutations to observe)
-   const config = { attributes: true, childList: true, subtree: false };
+      // Callback function to execute when mutations are observed
+      const callback = function(mutationsList, observer) {
+         setIntervalX(createButtons, 100, 10)
+      };
 
-   // Callback function to execute when mutations are observed
-   const callback = function(mutationsList, observer) {
-       setIntervalX(createButtons, 100, 10)
-   };
+      // Create an observer instance linked to the callback function
+      const observer = new MutationObserver(callback);
 
-   // Create an observer instance linked to the callback function
-   const observer = new MutationObserver(callback);
-
-   // Start observing the target node for configured mutations
-   observer.observe(targetNode, config);
+      // Start observing the target node for configured mutations
+      observer.observe(targetNode, config);
+   }
+   else {
+      setTimeout(() => {
+         setUpObserver()
+      }, 500)
+   }
 }
 
 setUpObserver()
