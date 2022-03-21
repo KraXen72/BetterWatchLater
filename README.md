@@ -5,6 +5,13 @@ A Chrome extension that makes the "Watch Later" page more compact and moves seve
 
 ## Version history
 
+### 1.4
+
+- Fixed a bug where the buttons would disappear on the reordering of videos
+- Better styling for the header of the playlist
+- Fixed a bug where the buttons would disappear when sorting the list
+- Fixed a bug where the buttons would disappear when pressinde "Show unavailable videos"
+
 ### 1.3
 
 - Switched away from MutationObserver as it was not correctly reattaching to the right elements
