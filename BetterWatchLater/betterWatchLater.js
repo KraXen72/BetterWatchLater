@@ -75,4 +75,23 @@ function createButtons() {
   }
 }
 
+function addListernersToSortOptions() {
+  let sortOptions = document.querySelectorAll("#sort-filter-menu tp-yt-paper-item.yt-dropdown-menu");
+
+  if (sortOptions.length > 0) {
+    sortOptions.forEach((sortOptionElement) => {
+      sortOptionElement.addEventListener("click", function (event) {
+        setTimeout(() => {
+          addRightButtons();
+        }, 0);
+      });
+    });
+  } else {
+    setTimeout(() => {
+      addListernersToSortOptions();
+    }, 500);
+  }
+}
+
 createButtons();
+addListernersToSortOptions();
