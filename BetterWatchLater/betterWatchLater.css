@@ -1,77 +1,91 @@
 /* ----=== Better Watch later start ===--- */
+
+.ytd-page-manager #alerts {
+  padding-left: 0 !important;
+}
+
 ytd-playlist-thumbnail {
-   display: none !important;
+  display: none !important;
 }
 
 ytd-playlist-sidebar-primary-info-renderer {
-   display: inline-flex !important;
+  display: inline-flex !important;
 }
 
 ytd-playlist-sidebar-secondary-info-renderer {
-   display: inline-flex !important;
-   float: right;
+  display: inline-flex !important;
+  float: right;
 }
 
-ytd-playlist-sidebar-renderer.ytd-browse { 
-   height: 60px !important;
-   overflow: hidden !important;
-   position: unset !important;
-   width: 100% !important;
+.ytd-page-manager ytd-playlist-sidebar-renderer.ytd-browse {
+  height: 70px !important;
+  overflow: hidden !important;
+  position: unset !important;
+  width: 100% !important;
+  margin-top: -12px;
+}
+
+.ytd-page-manager ytd-playlist-sidebar-renderer.ytd-browse #badges {
+  margin-top: 8px !important;
 }
 
 #owner-container {
-   display: none !important;
+  display: none !important;
 }
 
 #stats {
-   margin-left: 10px;
+  margin-left: 10px;
 }
 
 #privacy-stats {
-   margin-left: 10px;
-   margin-top: 0 !important;
+  margin-left: 10px;
+  margin-top: 0 !important;
 }
 
 ytd-playlist-sidebar-primary-info-renderer ytd-menu-renderer {
-   margin-left: 10px;
-   margin-top: 0 !important;
+  margin-left: 10px;
+  margin-top: 0 !important;
 }
 
 ytd-two-column-browse-results-renderer {
-   padding-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 ytd-video-meta-block {
-   padding-left: 10px !important;
-   padding-top: 2px !important;
+  padding-left: 10px !important;
+  padding-top: 2px !important;
 }
 
 #sort-filter-menu {
-   padding: 10px 10px 0 10px !important; 
+  padding: 10px 10px 0 10px !important;
 }
 
 #content {
-   padding-top: 5px !important;
-   padding-bottom: 5px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
-#meta { 
-   display: inline-flex !important;
+#meta {
+  display: inline-flex !important;
+}
+
+.ytd-playlist-sidebar-primary-info-renderer #top-level-buttons-computed {
+  margin-top: -4px !important;
 }
 
 ytd-playlist-video-renderer #menu {
-   display: inline-flex !important;
+  display: inline-flex !important;
 }
 
 .better-watch-later-button {
-   height: 25px;
-   width: 25px;
-   margin: 10px;
-   cursor: pointer;
+  height: 25px;
+  width: 25px;
+  margin: 10px;
+  cursor: pointer;
 }
 
 .better-watch-later-button:hover svg {
-   fill: white;
+  fill: white;
 }
 
 /* ----=== Better Watch later end ===--- */

@@ -18,6 +18,7 @@ function fireClickEvent(el) {
 
 function addSingleRightButton(svg, dropdownIndex, cssClass) {
   for (i = 0; i < document.querySelectorAll("ytd-playlist-video-renderer #menu").length; i++) {
+    // Ignore the row if there is already a button with the given class
     if (document.querySelectorAll("ytd-playlist-video-renderer #menu")[i].querySelectorAll("." + cssClass).length > 0) {
       continue;
     }
@@ -26,10 +27,12 @@ function addSingleRightButton(svg, dropdownIndex, cssClass) {
     button.classList.add("better-watch-later-button");
     button.classList.add(cssClass);
 
-    let dropdownTrigger = document.querySelectorAll("ytd-playlist-video-renderer .dropdown-trigger")[i];
+    let dropdownKebabButton = document.querySelectorAll("ytd-playlist-video-renderer .dropdown-trigger")[i];
     button.addEventListener("click", function (event) {
-      fireClickEvent(dropdownTrigger);
+      // expand the correct kebab menu
+      fireClickEvent(dropdownKebabButton);
       setTimeout(() => {
+        // press the correct option
         fireClickEvent(document.querySelectorAll("#contentWrapper tp-yt-paper-listbox ytd-menu-service-item-renderer")[dropdownIndex]);
       }, 0);
       addRightButtons();
@@ -61,11 +64,13 @@ function addRightButtons() {
 }
 
 function createButtons() {
+  // Wait for the list to load
   if (document.querySelectorAll("ytd-playlist-video-renderer #menu").length === 0) {
     setTimeout(() => {
       createButtons();
     }, 500);
   } else {
+    // When loaded, add the buttons
     addRightButtons();
   }
 }
