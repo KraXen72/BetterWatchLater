@@ -111,6 +111,31 @@ function addListenersToTopOptions() {
   }
 }
 
+function setUpObserver() {
+  // Select the node that will be observed for mutations
+  const targetNode = document.querySelector("ytd-playlist-video-list-renderer #contents");
+  if (targetNode) {
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: true, subtree: false };
+
+    // Callback function to execute when mutations are observed
+    const callback = function (mutationsList, observer) {
+      addRightButtons();
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+  } else {
+    setTimeout(() => {
+      setUpObserver();
+    }, 500);
+  }
+}
+
 createButtons();
 addListernersToSortOptions();
 addListenersToTopOptions();
+setUpObserver();
