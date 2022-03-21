@@ -93,5 +93,24 @@ function addListernersToSortOptions() {
   }
 }
 
+function addListenersToTopOptions() {
+  let topKebabOption = document.querySelector("ytd-playlist-sidebar-primary-info-renderer #menu .ytd-playlist-sidebar-primary-info-renderer>#button");
+  if (topKebabOption) {
+    topKebabOption.addEventListener("click", function (event) {
+      let options = document.querySelectorAll("#contentWrapper .ytd-menu-popup-renderer [role=menuitem]");
+      options.forEach((option) => {
+        option.addEventListener("click", function (event) {
+          addRightButtons();
+        });
+      });
+    });
+  } else {
+    setTimeout(() => {
+      addListenersToTopOptions();
+    }, 500);
+  }
+}
+
 createButtons();
 addListernersToSortOptions();
+addListenersToTopOptions();
