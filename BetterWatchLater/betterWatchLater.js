@@ -4,6 +4,8 @@ let moveToTopSVG =
   '<svg fill="grey" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M8 11h3v10h2V11h3l-4-4-4 4zM4 3v2h16V3H4z" class="style-scope yt-icon"></path><path d="M0 0h24v24H0z" fill="none" class="style-scope yt-icon"></path></g></svg>';
 let moveToBottomSVG =
   '<svg fill="grey" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M16 13h-3V3h-2v10H8l4 4 4-4zM4 19v2h16v-2H4z" class="style-scope yt-icon"></path><path d="M0 0h24v24H0z" fill="none" class="style-scope yt-icon"></path></g></svg>';
+let addToPlaylistSVG =
+	`<svg fill="grey" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z M14,7H2v1h12V7z M2,12h8v-1H2V12z M2,16h8v-1H2V16z" class="style-scope yt-icon"></path></g></svg>`
 
 // Fires a native click event on an element https://youmightnotneedjquery.com/#trigger_native
 function fireClickEvent(el) {
@@ -54,6 +56,7 @@ async function tryFunctionXTimes(callback, delay, repetitions) {
 function addRightButtons() {
   tryFunctionXTimes(
     () => {
+      addSingleRightButton(addToPlaylistSVG, 1, "better-watch-later-button-add-to-playlist")
       addSingleRightButton(moveToBottomSVG, 4, "better-watch-later-button-move-to-top");
       addSingleRightButton(moveToTopSVG, 3, "better-watch-later-button-move-to-bottom");
       addSingleRightButton(trashCanSVG, 2, "better-watch-later-button-delete");
